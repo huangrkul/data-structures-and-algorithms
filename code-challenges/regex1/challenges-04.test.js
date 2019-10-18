@@ -60,7 +60,7 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  let regex = /^(o|O)(ct$|\w+ber$)/g;
+  let regex = /^[Oo]ct(ober)?$/g;
   if(regex.test(input)){
     return true;
   } else {
