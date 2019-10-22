@@ -95,7 +95,7 @@ const hasChildrenValues = (arr, character) => {
     if(char.name === character){
       let childArray = Object.values(char.children);
       if(childArray.length !== 0) {
-        hasChildren = true;
+        hasChildren = true; //if just return true, it's returning true to the array
       } else {
         hasChildren = false;
       }
