@@ -23,8 +23,15 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
-
+  let total = [];
+  for(let i=0; i < hoursOpen.length; i++){
+    let sum = 0;
+    for(let k=0; k < stores.length; k++){
+      sum = stores[k][i] + sum;
+    }
+    total.push(sum);
+  }
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -38,7 +45,16 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let newArr = [];
+  let newObj = {};
+  data.forEach((sale, idx) =>{
+    newObj = {
+      sales: `${sale} cookies`,
+      time: hours[idx]
+    }
+    newArr.push(newObj);
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,7 +76,17 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let result = 0;
+  for(let i=0; i < arr.length; i++) {
+    if(arr[i].store === 'Pet store'){
+      arr[i].items.forEach(obj => {
+        if(obj.name === 'Treats'){
+          result = obj.quantity;
+        }
+      })
+    }
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -82,7 +108,7 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  //  Solution code here...
+  return board[row][col] === '#' ? 'hit' : 'miss';
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,7 +120,13 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  let result = 1;
+  for(let i=0; i<numbers.length; i++){
+    for(let k=0; k<numbers[i].length; k++){
+      result = result * numbers[i][k];
+    }
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,7 +146,15 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
+  let totalLength = 0;
+  let result = 0;
+  for(let i=0; i<weather.length; i++){
+    totalLength = totalLength + weather[i].length;
+    for(let k=0; k<weather[i].length; k++){
+      result = result + weather[i][k];
+    }
+  }
+  return result / totalLength;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,7 +175,19 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+
+  let weektotal = 0;
+  let weekAvg = Infinity;
+  for(let i=0; i<weather.length; i++){
+    weektotal = 0;
+    for(let k=0; k<weather[i].length; k++){
+      weektotal = weektotal + weather[i][k];
+    }
+    if(weekAvg > weektotal / weather[i].length) {
+      weekAvg = weektotal / weather[i].length;
+    }
+  }
+  return weekAvg;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -151,7 +203,19 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  let initArray = [];
+  let matrix = [];
+  let results = [];
+  initArray = str.split('\n');
+  matrix = initArray.map(string => string.split(','));
+  for(let i=0; i<matrix.length; i++){
+    let sum = 0;
+    for(let k=0; k<matrix[i].length; k++){
+      sum = sum + parseInt(matrix[i][k], 10);
+    }
+    results.push(sum);
+  }
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
