@@ -161,7 +161,7 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   let allHeights = data.map(obj => parseInt(obj.height, 10));
-  let newData = data.filter(obj => Math.min(...allHeights) === parseInt(obj.height, 10))
+  let newData = data.filter(obj => Math.min(...allHeights) === parseInt(obj.height, 10));
   return (newData[0].name);
 };
 
